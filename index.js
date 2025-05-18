@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import routes from "./routers/routes.js";
+import { swaggerUiSetup } from "./utils/swagger.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -26,4 +27,11 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
+    swaggerUiSetup(app, PORT);
+    console.log(`Swagger UI is available at http://localhost:${PORT}/api-docs`);
+    console.log(`Swagger JSON is available at http://localhost:${PORT}/swagger.json`);
+    console.log(`API is available at http://localhost:${PORT}/api/v1`);
+    console.log(`API is available at http://localhost:${PORT}/api/v1/getAllNews`);
+    console.log(`API is available at http://localhost:${PORT}/api/v1/addNews`);
+    console.log(`API is available at http://localhost:${PORT}/api/v1/getAllNews`);
 });
