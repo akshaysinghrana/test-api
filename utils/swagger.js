@@ -5,8 +5,6 @@ import swaggerUi from 'swagger-ui-express';
 import { logger } from './logger.js';
 
 const swaggerOptions = {
-  host: 'localhost:8000',
-  basePath: '/',
   schemes: ['http'],
   consumes: ['application/json'],
   produces: ['application/json'],
@@ -19,7 +17,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:8000/api/v1',
+        url: '/api/v1',
         description: 'API server',
       },
     ],
