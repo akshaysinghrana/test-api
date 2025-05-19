@@ -5,10 +5,8 @@ import swaggerUi from 'swagger-ui-express';
 import { logger } from './logger.js';
 
 const swaggerOptions = {
-  // host: 'localhost:8000',
-  host: 'test-api-git-main-akshay-ranas-projects-6a68ec40.vercel.app',
-  // basePath: '/api/v1',
-  basePath: '/api/v1',
+  host: 'localhost:8000',
+  basePath: '/',
   schemes: ['http'],
   consumes: ['application/json'],
   produces: ['application/json'],
@@ -21,8 +19,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        // url: 'http://localhost:8000/api/v1',
-        url: 'https://test-api-git-main-akshay-ranas-projects-6a68ec40.vercel.app/api/v1',
+        url: 'http://localhost:8000/api/v1',
         description: 'API server',
       },
     ],
@@ -65,21 +62,34 @@ const swaggerOptions = {
               description: 'Internal server error',
             },
             requestBody: {
-              required: true,
               content: {
                 'application/json': {
                   schema: {
                     type: 'object',
                     properties: {
-                      source: {
-                        type: 'object',
-                        properties: {
-                          id: { type: 'string' },
-                          name: { type: 'string' },
+                      articles: {
+                        type: 'array',
+                        items: {
+                          type: 'object',
+                          properties: {
+                            source: {
+                              type: 'object',
+                              properties: {
+                                id: { type: 'string' },
+                                name: { type: 'string' },
+                              },
+                            },
+                            author: { type: 'string' },
+                            title: { type: 'string' },
+                            description: { type: 'string' },
+                            url: { type: 'string', format: 'uri' },
+                            urlToImage: { type: 'string', format: 'uri' },
+                            publishedAt: { type: 'string', format: 'date-time' },
+                            content: { type: 'string' },
+                          },
                         },
                       },
                     },
-                    required: ['source'],
                   },
                 },
               },
