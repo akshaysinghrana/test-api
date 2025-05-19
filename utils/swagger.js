@@ -5,8 +5,10 @@ import swaggerUi from 'swagger-ui-express';
 import { logger } from './logger.js';
 
 const swaggerOptions = {
-  host: 'localhost:8000',
-  basePath: '/',
+  // host: 'localhost:8000',
+  host: 'test-api-git-main-akshay-ranas-projects-6a68ec40.vercel.app',
+  // basePath: '/api/v1',
+  basePath: '/api/v1',
   schemes: ['http'],
   consumes: ['application/json'],
   produces: ['application/json'],
@@ -19,7 +21,8 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:8000/api/v1',
+        // url: 'http://localhost:8000/api/v1',
+        url: 'https://test-api-git-main-akshay-ranas-projects-6a68ec40.vercel.app/api/v1',
         description: 'API server',
       },
     ],
